@@ -35,7 +35,9 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-data-rest") //Only need this if you plan to use repository-rest wrappers
     compile("com.h2database:h2")
     compile("postgresql:postgresql:9.1-901.jdbc4")
-    testCompile("junit:junit");
+    compile("com.google.guava:guava:18.0")
+    testCompile("junit:junit:4.12");
+    testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
 flyway {

@@ -1,6 +1,7 @@
 package com.webs.identity.dao;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 /**
  * Created by chris on 7/22/15.

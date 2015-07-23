@@ -5,9 +5,12 @@ This is a very very simple identity REST-ish service that has a backend DB.  I'l
 ## Setup:
 
 ### Create docker postgres image
-docker pull postgres:latest
-docker create --name postgres -p 5432:5433 postgres:latest POSTGRES_PASSWORD=testbox
-docker start -a postgres
+1. docker pull postgres:latest
+2. docker create --name postgres -p 5432:5433 postgres:latest POSTGRES_PASSWORD=testbox
+3. docker start -a postgres
+
+### Modify properties
+Modify the `application.properties` file to reflect the correct DB host.
 
 ### Start service
 ./gradlew bootRun

@@ -20,7 +20,7 @@ public class PartnerUser {
     @Column(name = "partner_id")
     private int partnerId;
 
-    protected PartnerUser(){}
+    public PartnerUser(){}
 
     public PartnerUser(String externalId, int partnerId) {
         this.externalId = externalId;

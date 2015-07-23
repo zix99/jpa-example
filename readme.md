@@ -12,8 +12,11 @@ This is a very very simple identity REST-ish service that has a backend DB.  I'l
 ### Modify properties
 Modify the `application.properties` file to reflect the correct DB host.
 
+### Migrating the database
+    ./gradlew flywayMigrate
+
 ### Start service
-./gradlew bootRun
+    ./gradlew bootRun
 
 ### Hit the endpoint
 curl -X POST http://yourdockerhost:8080/identity?external_id=123&partner_id=abc

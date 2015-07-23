@@ -1,0 +1,1 @@
+CREATE TABLE users (id SERIAL PRIMARY KEY, external_id varchar(256) NOT NULL, partner_id int NOT NULL)

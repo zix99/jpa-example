@@ -37,12 +37,12 @@ dependencies {
     compile("com.h2database:h2")
     compile("postgresql:postgresql:9.1-901.jdbc4")
     compile("com.google.guava:guava:18.0")
-    testCompile("junit:junit:4.12");
-    testCompile("org.springframework.boot:spring-boot-starter-test")
+    compile("junit:junit:4.12");
+    compile("org.springframework.boot:spring-boot-starter-test")
 }
 
 flyway {
-    url = 'jdbc:postgresql://dockerhost:5433/postgres'
+    url = 'jdbc:postgresql://dockerhost:5432/postgres'
     user = 'postgres'
     password = 'testbox'
 }

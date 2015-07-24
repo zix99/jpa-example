@@ -1,11 +1,19 @@
-identity:
+web:
  build: .
  ports:
   - "8080:8080"
  links:
   - postgres
+test:
+ build: .
+ volumes:
+  - ./:/code
+ links:
+  - postgres:dockerhost
+ working_dir: /code
+ entrypoint: ["./scripts/runtests"]
 postgres:
- image: postgres:9.5
+ image: postgres
  ports:
   - "5432:5432"
  environment:

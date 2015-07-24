@@ -28,6 +28,9 @@ Modify the `application.properties` file to reflect the correct DB host.
 ### Start service
     ./gradlew bootRun
 
+### Start tests in container
+    docker-compose run --rm test
+
 ### Hit the endpoint
 curl -X POST http://yourdockerhost:8080/identity?external_id=123&partner_id=abc
 

@@ -46,3 +46,15 @@ flyway {
     user = 'postgres'
     password = 'testbox'
 }
+
+test {
+    useJUnit {
+        excludeCategories("com.webs.IntegrationTest")
+    }
+}
+
+task(integrationTest, type: Test, description: "Runs the integration tests") {
+    useJUnit {
+        includeCategories("com.webs.IntegrationTest")
+    }
+}

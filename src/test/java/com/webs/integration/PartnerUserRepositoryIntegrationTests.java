@@ -1,8 +1,12 @@
+package com.webs.integration;
+
 import com.google.common.collect.Lists;
+import com.webs.IntegrationTest;
 import com.webs.identity.Application;
 import com.webs.identity.dao.PartnerUser;
 import com.webs.identity.dao.PartnerUserRepository;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -17,6 +21,7 @@ import java.util.List;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
+@Category(IntegrationTest.class)
 //@WebIntegrationTest
 public class PartnerUserRepositoryIntegrationTests {
 

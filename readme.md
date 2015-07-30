@@ -19,8 +19,12 @@ When you install boot2docker, make sure you add the following line to your .bash
 
 ### Create docker postgres image
 1. docker pull postgres:latest
-2. docker create --name postgres -p 5433:5432 postgres:latest POSTGRES_PASSWORD=testbox
+2. docker create --name postgres -p 5433:5432 -e POSTGRES_PASSWORD=testbox postgres:latest
 3. docker start -a postgres
+
+Why port 5433 for forwarding?
+ * Won't conflict with local postgres install
+ * Because I could 
 
 ### Modify properties
 Modify the `application.properties` file to reflect the correct DB host.

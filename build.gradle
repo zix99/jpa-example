@@ -39,6 +39,7 @@ dependencies {
     compile("com.google.guava:guava:18.0")
     compile("junit:junit:4.12");
     compile("org.springframework.boot:spring-boot-starter-test")
+    compile("org.")
 }
 
 flyway {

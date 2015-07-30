@@ -12,6 +12,9 @@ NOTE: If you have a version of boot2docker 1.7.1, talk to me, we'll need to get 
 4. brew install boot2docker
 5. Download the java8 jdk. We will be using 8 for all services
 
+When you install boot2docker, make sure you add the following line to your .bash_profile and/or .bashrc
+    eval "$(boot2docker shellinit)"
+
 ## Setup:
 
 ### Create docker postgres image

@@ -36,7 +36,6 @@ dependencies {
 }
 
 flyway {
-    url = 'jdbc:postgresql://dockerhost:5432/postgres'
     user = 'postgres'
     password = 'testbox'
 }
@@ -47,8 +46,40 @@ test {
     }
 }
 
-task(integrationTest, type: Test, description: "Runs the integration tests") {
+task setupDatabase(type: Exec) {
+    executable 'docker'
+    args 'run -d -P --name testDb -e POSTGRES_PASSWORD=testbox postgres'.split()
+}
+
+task readDbPort(type: Exec, dependsOn: setupDatabase) {
+    flywayMigrate.dependsOn it
+    executable 'docker'
+    args 'inspect', '-f', '{{(index (index .NetworkSettings.Ports "5432/tcp") 0).HostPort}}', 'testDb'
+    standardOutput = new ByteArrayOutputStream()
+
+    doLast {
+        def host = System.env.DOCKER_HOST ? (System.env.DOCKER_HOST =~ /[\d\.]+/)[0] : 'localhost'
+        def port = standardOutput.toString().trim()
+        def connectionString = "jdbc:postgresql://$host:$port/postgres"
+        flyway.url = connectionString
+        integrationTest.configure {
+            systemProperty 'spring.datasource.url', connectionString
+            systemProperty 'spring.datasource.password', 'testbox'
+        }
+        sleep(3000) // to ensure database is up before proceeding
+    }
+}
+
+task teardownDatabase(type: Exec) {
+    executable 'docker'
+    args "rm -fv testDb".split()
+}
+
+task integrationTest(type: Test, group: 'verification', description: "Runs the integration tests.") {
+    dependsOn flywayMigrate
+    check.dependsOn it
     useJUnit {
         includeCategories("com.webs.IntegrationTest")
     }
+    finalizedBy teardownDatabase
 }

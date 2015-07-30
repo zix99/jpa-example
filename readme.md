@@ -16,7 +16,7 @@ NOTE: If you have a version of boot2docker 1.7.1, talk to me, we'll need to get 
 
 ### Create docker postgres image
 1. docker pull postgres:latest
-2. docker create --name postgres -p 5432:5433 postgres:latest POSTGRES_PASSWORD=testbox
+2. docker create --name postgres -p 5433:5432 postgres:latest POSTGRES_PASSWORD=testbox
 3. docker start -a postgres
 
 ### Modify properties

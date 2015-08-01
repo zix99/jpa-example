@@ -1,3 +1,0 @@
-#!/bin/bash
-./gradlew flywayMigrate -i
-./gradlew test

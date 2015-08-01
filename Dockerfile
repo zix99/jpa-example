@@ -1,5 +1,5 @@
-FROM java:8
-VOLUME /tmp
-ADD build/libs/Identity-service-0.1.0.jar app.jar
-RUN bash -c 'touch /app.jar'
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+FROM java:8-jre
+EXPOSE 8080
+ADD build/libs/Identity-service.jar app.jar
+RUN touch app.jar
+CMD ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "app.jar"]

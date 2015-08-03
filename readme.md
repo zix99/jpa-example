@@ -1,6 +1,9 @@
-# Example Simple Identity Service
+# Example Simple "Identity" Service
 
 This is a very very simple identity REST-ish service that has a backend DB.  I'll be adding more to it as I go.
+
+As time went on, this became more of my test-bed service.  A lot of the libraries and integrations work just fine,
+but you generally shouldn't take this as a code-style recommendation or "way of doing things".
 
 ## Requirements:
 
